@@ -6,43 +6,64 @@
     <title>الشروط والأحكام - NABZA CV</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif; /* نوع الخط */
-            direction: rtl; /* اتجاه النص من اليمين لليسار عشان اللغة العربية */
-            text-align: right; /* محاذاة النص لليمين */
-            line-height: 1.7; /* تباعد الأسطر زادته شوية عشان سهولة القراءة في الشروط */
-            color: #333; /* لون النص */
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.7;
+            color: #333;
             margin: 0;
-            padding: 20px;
-            background-color: #fff; /* خلفية بيضاء بالكامل */
+            padding: 0;
+            background-color: #fff;
         }
 
+        /* تنسيقات الهيدر */
+        .header {
+            background-color: #0056B3; /* لون الهيدر الأزرق */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center; /* توسيط الشعار أفقيا */
+            align-items: center; /* توسيط الشعار عموديا */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .logo img {
+            height: 50px; /* ارتفاع الشعار (يمكنك تغييرها) */
+            width: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            display: block;
+            /* للتحكم في حجم الشعار من هنا: */
+            /* height: 60px; */
+            /* width: 120px; */
+        }
+        /* نهاية تنسيقات الهيدر */
+
         .container {
-            max-width: 900px; /* عرض أقصى للمحتوى عشان الشروط ممكن تكون طويلة */
-            margin: 40px auto; /* توسيط المحتوى وإضافة مسافة علوية وسفلية */
+            max-width: 900px;
+            margin: 100px auto 40px auto; /* زيادة ال margin-top لتعويض الهيدر */
             padding: 30px;
             background-color: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05); /* ظل خفيف على الكونتينر */
-            border-radius: 8px; /* حواف دائرية خفيفة */
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
 
         h1 {
-            color: #0056B3; /* لون العنوان الرئيسي */
-            text-align: center; /* توسيط عنوان "الشروط والأحكام" */
+            color: #0056B3;
+            text-align: center;
             margin-bottom: 40px;
-            font-size: 2.5em; /* حجم أكبر للعنوان */
+            font-size: 2.5em;
         }
 
         h2 {
-            color: #0056B3; /* لون عناوين الأقسام الرئيسية (1. سياسة الخصوصية) */
-            margin-top: 40px; /* مسافة أكبر قبل العناوين الرئيسية */
+            color: #0056B3;
+            margin-top: 40px;
             margin-bottom: 20px;
             font-size: 1.9em;
-            border-bottom: 2px solid #eee; /* خط تحت العنوان الرئيسي */
+            border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
 
         h3 {
-            color: #0056B3; /* لون العناوين الفرعية (1.1 جمع المعلومات) */
+            color: #0056B3;
             margin-top: 30px;
             margin-bottom: 15px;
             font-size: 1.4em;
@@ -54,21 +75,21 @@
         }
 
         ul {
-            list-style: none; /* إزالة النقاط الافتراضية للقوائم */
+            list-style: none;
             padding: 0;
             margin-bottom: 20px;
         }
 
         ul li {
             position: relative;
-            padding-right: 25px; /* مسافة للنقطة المخصصة */
+            padding-right: 25px;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
 
         ul li::before {
-            content: '•'; /* استخدام نقطة مخصصة */
-            color: #0056B3; /* لون النقطة */
+            content: '•';
+            color: #0056B3;
             font-size: 1.2em;
             position: absolute;
             right: 0;
@@ -77,31 +98,37 @@
 
         /* تنسيق رابط الرجوع */
         .back-link {
-            display: block; /* عشان ياخد سطر لوحده ونتحكم في توسيطه */
-            width: fit-content; /* عرضه يكون على قد الكلام */
-            margin: 50px auto 20px auto; /* توسيط العنصر */
-            color: #0056B3; /* اللون الأزرق اللي طلبته */
-            text-decoration: none; /* إزالة الخط اللي تحت اللينك */
-            font-size: 1.2em; /* حجم الخط */
-            font-weight: bold; /* خط سميك */
-            transition: color 0.3s ease; /* تأثير ناعم عند المرور بالماوس */
+            display: block;
+            width: fit-content;
+            margin: 50px auto 20px auto;
+            color: #0056B3;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .back-link:hover {
-            color: #004494; /* لون أزرق أغمق شوية لما الماوس يمر عليه */
+            color: #004494;
         }
 
         .back-link .arrow {
-            display: inline-block; /* عشان يبقى جنب النص */
-            margin-left: 8px; /* مسافة بين النص والسهم */
-            transform: rotate(180deg); /* تدوير السهم عشان يشاور لليسار */
-            font-size: 1.3em; /* حجم السهم */
-            line-height: 1; /* ضبط محاذاة السهم مع النص */
-            vertical-align: middle; /* محاذاة عمودية */
+            display: inline-block;
+            margin-left: 8px;
+            transform: rotate(180deg);
+            font-size: 1.3em;
+            line-height: 1;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
+
+    <header class="header">
+        <a href="https://nabzacv.blogspot.com" class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTTLuMoi2SW4uOsW7ZP-FtViLmJro2vpvc1xuXXDe3hKR3WSRdNIKX89kvw318LRukveHMtpKdrI1PpiuwCN3lEykSwoscPPIVyb33uhy9iFr8NUYSP6xcuSV-UJN2bV6LARvzfquvdFj9CbQs9jNhk-U4qGiUjPFZsbwNJSk1x3wn6mlVxvKNPCWyaOo/s1600/5.png" alt="NABZA CV Logo">
+        </a>
+        </header>
 
     <div class="container">
         <h1>الشروط والأحكام</h1>
@@ -211,4 +238,4 @@
     </div>
 
 </body>
-</html>
+    </html>
