@@ -4,122 +4,318 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الشروط والأحكام - NABZA CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* تعريف الألوان والمتغيرات لتسهيل التخصيص */
+        :root {
+            --primary-color: #0056B3; /* الأزرق الأساسي لموقعك */
+            --secondary-color: #004494; /* أزرق أغمق للـ hover وتفاصيل */
+            --accent-color: #ffffff; /* لون فاتح جداً للخلفيات المميزة */
+            --text-dark: #333;
+            --text-light: #555;
+            --border-light: #e0e0e0;
+            --shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Cairo', sans-serif;
             direction: rtl;
             text-align: right;
             line-height: 1.7;
-            color: #333;
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: var(--accent-color);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* تنسيقات الهيدر */
+        /* الهيدر - كما هو متفق عليه */
         .header {
-            background-color: #0056B3; /* لون الهيدر الأزرق */
+            background-color: var(--primary-color);
             color: #fff;
             padding: 15px 20px;
             display: flex;
-            justify-content: center; /* توسيط الشعار أفقيا */
-            align-items: center; /* توسيط الشعار عموديا */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .header .logo img {
-            height: 50px; /* ارتفاع الشعار (يمكنك تغييرها) */
-            width: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            height: 50px;
+            width: auto;
             display: block;
-            /* للتحكم في حجم الشعار من هنا: */
-            /* height: 60px; */
-            /* width: 120px; */
         }
-        /* نهاية تنسيقات الهيدر */
 
+        /* تنسيقات عامة للمحتوى */
         .container {
-            max-width: 900px;
-            margin: 100px auto 40px auto; /* زيادة ال margin-top لتعويض الهيدر */
-            padding: 30px;
+            max-width: 960px; /* عرض مناسب لصفحة الشروط والأحكام */
+            margin: 60px auto 60px auto;
+            padding: 50px;
             background-color: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            border-radius: 8px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            flex-grow: 1;
         }
 
         h1 {
-            color: #0056B3;
+            color: var(--primary-color);
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5em;
+            margin-bottom: 60px;
+            font-size: 3.5em;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
         }
 
         h2 {
-            color: #0056B3;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.9em;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            color: var(--primary-color);
+            margin-top: 70px;
+            margin-bottom: 35px;
+            font-size: 2.5em;
+            font-weight: 700;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 90%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
         }
 
         h3 {
-            color: #0056B3;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
+            color: var(--secondary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em; /* حجم مناسب للعناوين الفرعية الداخلية */
+            font-weight: 700;
+            position: relative;
+            padding-right: 15px;
+        }
+
+        h3 .icon-sm {
+            width: 28px; /* حجم الأيقونة الصغيرة بجانب العنوان */
+            height: 28px;
+            fill: var(--secondary-color);
+            margin-left: 10px;
+            vertical-align: middle; /* محاذاة عمودية مع النص */
         }
 
         p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-size: 1.2em;
+            line-height: 1.9;
+            color: var(--text-light);
+        }
+
+        .content-section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 40px;
+        }
+
+        .content-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         ul li {
             position: relative;
-            padding-right: 25px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            padding-right: 40px; /* مسافة للنص من الأيقونة */
+            margin-bottom: 15px;
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--text-dark);
         }
 
-        ul li::before {
-            content: '•';
-            color: #0056B3;
-            font-size: 1.2em;
+        ul li .icon-bullet {
+            width: 24px; /* حجم أيقونة الـ bullet point */
+            height: 24px;
+            fill: var(--primary-color);
             position: absolute;
             right: 0;
-            top: 0;
+            top: 5px; /* لتوسيطها عمودياً */
         }
 
-        /* تنسيق رابط الرجوع */
-        .back-link {
-            display: block;
-            width: fit-content;
-            margin: 50px auto 20px auto;
-            color: #0056B3;
+        /* زر الرجوع للصفحة الرئيسية - بتصميم عصري ومميز */
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .back-to-home a {
+            background-color: var(--primary-color);
+            color: #fff;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #004494;
-        }
-
-        .back-link .arrow {
-            display: inline-block;
-            margin-left: 8px;
-            transform: rotate(180deg);
+            padding: 18px 40px;
+            border-radius: 35px;
             font-size: 1.3em;
-            line-height: 1;
-            vertical-align: middle;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 18px rgba(0, 86, 179, 0.4);
+            display: flex;
+            align-items: center;
         }
+
+        .back-to-home a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 22px rgba(0, 86, 179, 0.5);
+        }
+
+        .back-to-home a .arrow {
+            display: inline-block;
+            margin-right: 12px;
+            transform: rotate(180deg);
+            font-size: 1.7em;
+            line-height: 1;
+        }
+
+        /* تصميم للموبايل (Responsive Design) */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 90%;
+                margin: 40px auto;
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2.8em;
+                margin-bottom: 40px;
+            }
+            h2 {
+                font-size: 2em;
+                margin-top: 50px;
+            }
+            h3 {
+                font-size: 1.6em;
+                margin-top: 30px;
+            }
+            h3 .icon-sm {
+                width: 24px;
+                height: 24px;
+            }
+            p {
+                font-size: 1.1em;
+            }
+            ul li {
+                font-size: 1.05em;
+                padding-right: 35px;
+            }
+            ul li .icon-bullet {
+                width: 20px;
+                height: 20px;
+                top: 4px;
+            }
+            .back-to-home a {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            .back-to-home a .arrow {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                border-radius: 10px;
+            }
+            h1 {
+                font-size: 2.2em;
+                margin-bottom: 30px;
+            }
+            h1::after {
+                width: 70px;
+                height: 3px;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-top: 40px;
+            }
+            h3 {
+                font-size: 1.4em;
+                margin-top: 25px;
+            }
+            h3 .icon-sm {
+                width: 20px;
+                height: 20px;
+            }
+            p {
+                font-size: 1em;
+            }
+            ul li {
+                font-size: 1em;
+                padding-right: 30px;
+            }
+            ul li .icon-bullet {
+                width: 18px;
+                height: 18px;
+                top: 3px;
+            }
+            .back-to-home a {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .back-to-home a .arrow {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+            .header .logo img {
+                height: 40px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin-top: 30px;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -128,113 +324,125 @@
         <a href="https://nabzacv.blogspot.com" class="logo">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTTLuMoi2SW4uOsW7ZP-FtViLmJro2vpvc1xuXXDe3hKR3WSRdNIKX89kvw318LRukveHMtpKdrI1PpiuwCN3lEykSwoscPPIVyb33uhy9iFr8NUYSP6xcuSV-UJN2bV6LARvzfquvdFj9CbQs9jNhk-U4qGiUjPFZsbwNJSk1x3wn6mlVxvKNPCWyaOo/s1600/5.png" alt="NABZA CV Logo">
         </a>
-        </header>
+    </header>
 
     <div class="container">
         <h1>الشروط والأحكام</h1>
 
-        <p>مرحبًا بك في NABZA CV. نحن نؤمن أن الشفافية والوضوح هما أساس الثقة بيننا وبين عملائنا الكرام. لذلك، نرجو منك قراءة هذه الشروط والأحكام بعناية قبل استخدام خدماتنا. باستخدامك منصة NABZA CV، فإنك توافق على الالتزام بجميع الشروط والسياسات الموضحة أدناه.</p>
+        <div class="content-section">
+            <p>مرحبًا بك في NABZA CV. نحن نؤمن أن الشفافية والوضوح هما أساس الثقة بيننا وبين عملائنا الكرام. لذلك، نرجو منك قراءة هذه الشروط والأحكام بعناية قبل استخدام خدماتنا. باستخدامك منصة NABZA CV، فإنك توافق على الالتزام بجميع الشروط والسياسات الموضحة أدناه.</p>
+        </div>
 
-        <h2>1. سياسة الخصوصية</h2>
+        <div class="content-section">
+            <h2> 1. سياسة الخصوصية</h2>
 
-        <h3>1.1 جمع المعلومات</h3>
-        <p>نقوم بجمع البيانات التي تزودنا بها مباشرة عند استخدامك لخدماتنا، وتشمل هذه البيانات:</p>
-        <ul>
-            <li>البيانات الشخصية مثل الاسم، البريد الإلكتروني، رقم الهاتف.</li>
-            <li>معلومات السيرة الذاتية التي تقوم بإدخالها.</li>
-            <li>بيانات الدفع والمشتريات الخاصة بالخدمة.</li>
-            <li>معلومات تقنية مثل عنوان الـ IP، نوع الجهاز، ونظام التشغيل لتحسين الأداء.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1.1 جمع المعلومات</h3>
+            <p>نقوم بجمع البيانات التي تزودنا بها مباشرة عند استخدامك لخدماتنا، وتشمل هذه البيانات:</p>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>البيانات الشخصية مثل الاسم، البريد الإلكتروني، رقم الهاتف.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>معلومات السيرة الذاتية التي تقوم بإدخالها.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>بيانات الدفع والمشتريات الخاصة بالخدمة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>معلومات تقنية مثل عنوان الـ IP، نوع الجهاز، ونظام التشغيل لتحسين الأداء.</li>
+            </ul>
 
-        <h3>1.2 استخدام المعلومات</h3>
-        <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
-        <ul>
-            <li>توفير خدمات تصميم السير الذاتية حسب طلبك.</li>
-            <li>التواصل معك بشأن طلباتك، التحديثات، والعروض الخاصة.</li>
-            <li>تحسين وتطوير خدماتنا ومنصتنا.</li>
-            <li>منع أي استخدام غير قانوني أو مخالف للشروط.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1.2 استخدام المعلومات</h3>
+            <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>توفير خدمات تصميم السير الذاتية حسب طلبك.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>التواصل معك بشأن طلباتك، التحديثات، والعروض الخاصة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>تحسين وتطوير خدماتنا ومنصتنا.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>منع أي استخدام غير قانوني أو مخالف للشروط.</li>
+            </ul>
 
-        <h3>1.3 حماية المعلومات</h3>
-        <p>نلتزم باتخاذ كل الإجراءات التقنية والتنظيمية اللازمة لحماية بياناتك الشخصية من الوصول غير المصرح به، التعديل، أو الكشف. تشمل إجراءات الحماية:</p>
-        <ul>
-            <li>استخدام بروتوكولات التشفير SSL أثناء نقل البيانات.</li>
-            <li>تخزين البيانات في بيئة مؤمنة ذات وصول محدود.</li>
-            <li>مراجعة دورية لإجراءات الأمان.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1.3 حماية المعلومات</h3>
+            <p>نلتزم باتخاذ كل الإجراءات التقنية والتنظيمية اللازمة لحماية بياناتك الشخصية من الوصول غير المصرح به، التعديل، أو الكشف. تشمل إجراءات الحماية:</p>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>استخدام بروتوكولات التشفير SSL أثناء نقل البيانات.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>تخزين البيانات في بيئة مؤمنة ذات وصول محدود.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>مراجعة دورية لإجراءات الأمان.</li>
+            </ul>
 
-        <h3>1.4 مشاركة البيانات</h3>
-        <p>نحن لا نبيع أو نشارك بياناتك الشخصية مع أطراف ثالثة لأي غرض تجاري. قد نشارك بياناتك مع مزودي خدمات موثوقين فقط لأغراض تنفيذ الخدمة (مثل بوابات الدفع)، مع الالتزام الكامل بسرية وحماية بياناتك.</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1.4 مشاركة البيانات</h3>
+            <p>نحن لا نبيع أو نشارك بياناتك الشخصية مع أطراف ثالثة لأي غرض تجاري. قد نشارك بياناتك مع مزودي خدمات موثوقين فقط لأغراض تنفيذ الخدمة (مثل بوابات الدفع)، مع الالتزام الكامل بسرية وحماية بياناتك.</p>
 
-        <h3>1.5 حقوقك وامتثالك</h3>
-        <p>لديك الحق في طلب:</p>
-        <ul>
-            <li>الوصول إلى بياناتك الشخصية التي نحتفظ بها.</li>
-            <li>تعديل أو تصحيح البيانات غير الدقيقة.</li>
-            <li>طلب حذف بياناتك الشخصية، مع ملاحظة أن حذف بعض البيانات قد يؤثر على تقديم الخدمة.</li>
-            <li>سحب موافقتك على استخدام بياناتك في أي وقت، مع التنويه إلى أن ذلك قد يؤثر على استمرار تقديم الخدمة.</li>
-        </ul>
-        <p>يمكنك ممارسة حقوقك هذه بالتواصل معنا عبر وسائل الاتصال المتاحة.</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1.5 حقوقك وامتثالك</h3>
+            <p>لديك الحق في طلب:</p>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>الوصول إلى بياناتك الشخصية التي نحتفظ بها.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>تعديل أو تصحيح البيانات غير الدقيقة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>طلب حذف بياناتك الشخصية، مع ملاحظة أن حذف بعض البيانات قد يؤثر على تقديم الخدمة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>سحب موافقتك على استخدام بياناتك في أي وقت، مع التنويه إلى أن ذلك قد يؤثر على استمرار تقديم الخدمة.</li>
+            </ul>
+            <p>يمكنك ممارسة حقوقك هذه بالتواصل معنا عبر وسائل الاتصال المتاحة.</p>
+        </div>
 
-        <h2>2. سياسة الاستخدام</h2>
+        <div class="content-section">
+            <h2> 2. سياسة الاستخدام</h2>
 
-        <h3>2.1 شروط الاستخدام العامة</h3>
-        <p>عند استخدامك لخدمات NABZA CV، فإنك توافق على:</p>
-        <ul>
-            <li>تقديم معلومات صحيحة، دقيقة، وحديثة عند ملء بيانات السيرة الذاتية.</li>
-            <li>عدم استخدام المنصة لأي نشاط غير قانوني أو مخالف للأخلاق والقوانين المحلية والدولية.</li>
-            <li>عدم محاولة الوصول غير المصرح به إلى أي جزء من المنصة أو خوادمنا.</li>
-            <li>عدم استخدام المنصة في نشر محتوى مسيء، تحريضي، أو ينتهك حقوق الغير.</li>
-            <li>الالتزام بسياسة الدفع وعدم محاولة التهرب من دفع مستحقات الخدمات.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 2.1 شروط الاستخدام العامة</h3>
+            <p>عند استخدامك لخدمات NABZA CV، فإنك توافق على:</p>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>تقديم معلومات صحيحة، دقيقة، وحديثة عند ملء بيانات السيرة الذاتية.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>عدم استخدام المنصة لأي نشاط غير قانوني أو مخالف للأخلاق والقوانين المحلية والدولية.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>عدم محاولة الوصول غير المصرح به إلى أي جزء من المنصة أو خوادمنا.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>عدم استخدام المنصة في نشر محتوى مسيء، تحريضي، أو ينتهك حقوق الغير.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>الالتزام بسياسة الدفع وعدم محاولة التهرب من دفع مستحقات الخدمات.</li>
+            </ul>
 
-        <h3>2.2 حقوق الملكية الفكرية</h3>
-        <p>كل المحتوى والتصاميم المقدمة من NABZA CV هي ملك فكرية حصرية للمشروع. يمنع نسخ أو توزيع أو إعادة استخدام هذه التصاميم بأي شكل من الأشكال بدون موافقة خطية مسبقة.</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 2.2 حقوق الملكية الفكرية</h3>
+            <p>كل المحتوى والتصاميم المقدمة من NABZA CV هي ملك فكرية حصرية للمشروع. يمنع نسخ أو توزيع أو إعادة استخدام هذه التصاميم بأي شكل من الأشكال بدون موافقة خطية مسبقة.</p>
 
-        <h3>2.3 حساب المستخدم</h3>
-        <ul>
-            <li>يلتزم المستخدم بالحفاظ على سرية بيانات الدخول الخاصة به وعدم مشاركتها مع أي طرف ثالث.</li>
-            <li>يتحمل المستخدم المسؤولية الكاملة عن أي نشاط يتم باستخدام حسابه.</li>
-            <li>نحتفظ بالحق في تعليق أو إغلاق أي حساب في حال مخالفة الشروط دون الحاجة لإشعار مسبق.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 2.3 حساب المستخدم</h3>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>يلتزم المستخدم بالحفاظ على سرية بيانات الدخول الخاصة به وعدم مشاركتها مع أي طرف ثالث.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>يتحمل المستخدم المسؤولية الكاملة عن أي نشاط يتم باستخدام حسابه.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>نحتفظ بالحق في تعليق أو إغلاق أي حساب في حال مخالفة الشروط دون الحاجة لإشعار مسبق.</li>
+            </ul>
 
-        <h3>2.4 المسؤولية القانونية</h3>
-        <p>NABZA CV غير مسؤولة عن أي أضرار مباشرة أو غير مباشرة قد تنشأ عن استخدام الخدمة أو الاعتماد على المعلومات المقدمة فيها. الخدمة تُقدم كما هي دون أي ضمانات صريحة أو ضمنية.</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 2.4 المسؤولية القانونية</h3>
+            <p>NABZA CV غير مسؤولة عن أي أضرار مباشرة أو غير مباشرة قد تنشأ عن استخدام الخدمة أو الاعتماد على المعلومات المقدمة فيها. الخدمة تُقدم كما هي دون أي ضمانات صريحة أو ضمنية.</p>
+        </div>
 
-        <h2>3. سياسة الاسترجاع والإلغاء</h2>
+        <div class="content-section">
+            <h2> 3. سياسة الاسترجاع والإلغاء</h2>
 
-        <h3>3.1 طبيعة الخدمة</h3>
-        <p>نظرًا لأن خدماتنا رقمية ومخصصة حسب طلب كل عميل، فإننا نلتزم بتقديم خدمة ذات جودة عالية ووفقًا لما تم الاتفاق عليه، لذلك نوضح الآتي:</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 3.1 طبيعة الخدمة</h3>
+            <p>نظرًا لأن خدماتنا رقمية ومخصصة حسب طلب كل عميل، فإننا نلتزم بتقديم خدمة ذات جودة عالية ووفقًا لما تم الاتفاق عليه، لذلك نوضح الآتي:</p>
 
-        <h3>3.2 سياسة الإلغاء</h3>
-        <ul>
-            <li>يمكن للعميل إلغاء الطلب قبل بدء العمل عليه واسترداد المبلغ كاملاً بدون أي خصومات.</li>
-            <li>بمجرد بدء العمل على تصميم السيرة الذاتية، لا يمكن إلغاء الطلب أو استرداد المبلغ إلا في حالات استثنائية يتم تقييمها من قبل فريقنا.</li>
-        </ul>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 3.2 سياسة الإلغاء</h3>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>يمكن للعميل إلغاء الطلب قبل بدء العمل عليه واسترداد المبلغ كاملاً بدون أي خصومات.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>بمجرد بدء العمل على تصميم السيرة الذاتية، لا يمكن إلغاء الطلب أو استرداد المبلغ إلا في حالات استثنائية يتم تقييمها من قبل فريقنا.</li>
+            </ul>
 
-        <h3>3.3 سياسة الاسترجاع</h3>
-        <ul>
-            <li>لا يتم استرجاع المبالغ المدفوعة بعد تسليم الخدمة، إلا في حال وجود خطأ واضح أو عدم تنفيذ ما تم الاتفاق عليه.</li>
-            <li>في حالة وجود مشكلة في الخدمة المقدمة، يرجى التواصل معنا خلال 7 أيام من تاريخ التسليم لمراجعة المشكلة ومحاولة تعديل الخدمة بالشكل المناسب.</li>
-            <li>نلتزم بالعمل مع العميل حتى يرضى عن المنتج النهائي ضمن حدود منطقية.</li>
-        </ul>
+            <h3> 3.3 سياسة الاسترجاع</h3>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>لا يتم استرجاع المبالغ المدفوعة بعد تسليم الخدمة، إلا في حال وجود خطأ واضح أو عدم تنفيذ ما تم الاتفاق عليه.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>في حالة وجود مشكلة في الخدمة المقدمة، يرجى التواصل معنا خلال 7 أيام من تاريخ التسليم لمراجعة المشكلة ومحاولة تعديل الخدمة بالشكل المناسب.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>نلتزم بالعمل مع العميل حتى يرضى عن المنتج النهائي ضمن حدود منطقية.</li>
+            </ul>
 
-        <h3>3.4 الدعم الفني</h3>
-        <p>نحن ملتزمون بتقديم الدعم اللازم لكل عملائنا لضمان رضاهم التام، ويشمل ذلك التعديلات البسيطة بعد التسليم حسب ما هو متفق عليه.</p>
+            <h3><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2Z" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="#0056B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 3.4 الدعم الفني</h3>
+            <p>نحن ملتزمون بتقديم الدعم اللازم لكل عملائنا لضمان رضاهم التام، ويشمل ذلك التعديلات البسيطة بعد التسليم حسب ما هو متفق عليه.</p>
+        </div>
 
-        <h2>4. أحكام عامة</h2>
-        <ul>
-            <li>تحتفظ NABZA CV بالحق في تعديل هذه الشروط والأحكام في أي وقت، وسيتم نشر النسخة المحدثة على الموقع.</li>
-            <li>استمرار استخدامك للخدمة بعد أي تعديل يعني موافقتك على الشروط الجديدة.</li>
-            <li>في حالة وجود أي نزاع، تسعى NABZA CV لحله وديًا، وإن تعذر ذلك يتم اللجوء للجهات القضائية المختصة.</li>
-            <li>هذه الشروط تخضع وتفسر وفقًا لقوانين البلد التي تعمل فيها الخدمة.</li>
-        </ul>
+        <div class="content-section">
+          </h2> 4. أحكام عامة</h2>
+            <ul>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>تحتفظ NABZA CV بالحق في تعديل هذه الشروط والأحكام في أي وقت، وسيتم نشر النسخة المحدثة على الموقع.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>استمرار استخدامك للخدمة بعد أي تعديل يعني موافقتك على الشروط الجديدة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>في حالة وجود أي نزاع، تسعى NABZA CV لحله وديًا، وإن تعذر ذلك يتم اللجوء للجهات القضائية المختصة.</li>
+                <li><svg class="icon-bullet" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#0056B3"/></svg>هذه الشروط تخضع وتفسر وفقًا لقوانين البلد التي تعمل فيها الخدمة.</li>
+            </ul>
+        </div>
 
-        <p>نشكر لك ثقتك في NABZA CV، ونتطلع إلى أن نكون شركاء نجاحك في بناء مستقبلك المهني.</p>
+        <p class="last-paragraph">نشكر لك ثقتك في NABZA CV، ونتطلع إلى أن نكون شركاء نجاحك في بناء مستقبلك المهني.</p>
 
-        <a href="https://nabzacv.blogspot.com" class="back-link">
-            الرجوع للصفحة الرئيسية <span class="arrow">&#x2190;</span>
-        </a>
+        <div class="back-to-home">
+            <a href="https://nabzacv.blogspot.com">
+                <span class="arrow">&#x2190;</span> الرجوع للصفحة الرئيسية
+            </a>
+        </div>
     </div>
 
 </body>
